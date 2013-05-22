@@ -76,8 +76,8 @@
 - (IBAction)doneSelector:(id)sender
 {
     [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationCurveLinear animations:^{
-        [self.pickerToolBar setFrame:CGRectMake(0, 481, 320, 44)];
-        [self.datePicker setFrame:CGRectMake(0, 525, 320, 280)];
+        [self.pickerToolBar setFrame:CGRectMake(-320, 156, 320, 44)];
+        [self.datePicker setFrame:CGRectMake(320, 200, 320, 280)];
     } completion:^ (BOOL finished) {
         [self.pickerToolBar setAlpha:0.0f];
         [self.datePicker setAlpha:0.0f];
