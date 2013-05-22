@@ -17,19 +17,18 @@
 
 @end
 
-@interface AddShiftViewController : UIViewController
-{
-    NSString *nameString;
-}
--(id) initWithArray: (NSString *)_nameString;
+@interface AddShiftViewController : UIViewController <UITextFieldDelegate>
+
 
 @property (strong, nonatomic) AddShiftCustom_View *view;
 @property (weak, nonatomic) id <AddShiftViewControllerDelegate> delegate;
 @property (strong,nonatomic) employee *forNameOfEmployee;
-@property (strong, nonatomic) UILabel *nameOfWorker;
+
+@property (strong, nonatomic) NSString *actualNameOfWorker;
+
 
 @property (nonatomic) BOOL *delegateForWorkersViewController;
 
-
+-(id) initWithWorkerName: (NSString *)name;
 
 @end

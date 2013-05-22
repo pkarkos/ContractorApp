@@ -41,17 +41,6 @@
 //  Override inherited implementation to automatically refresh the table
 //  view's data.
 //
--(void) giveNameToAddShiftViewController
-{
-    [[self tableView] reloadData];
-    employee *giveNameString =[self.workersArray objectAtIndex:0];
-    NSString *givesNameString = giveNameString.name;
-    
-    AddShiftViewController *passToAddShiftViewController = [[AddShiftViewController alloc] initWithArray:givesNameString];
-    
-    [self.navigationController pushViewController:passToAddShiftViewController animated:YES];
-    NSLog(@"Sent Info");
-}
 
 -(void) addItemViewController:(AddWorkerViewController *)controller didFinishEnteringItem:(employee *)item
 {

@@ -15,10 +15,15 @@
 @property (strong, nonatomic) UILabel *titleDate;
 @property (strong, nonatomic) UILabel *titleHours;
 @property (strong, nonatomic) UILabel *titleNotes;
+@property (strong, nonatomic) UITextField *dateTextField;
 @property (strong, nonatomic) UITextField *notesTextField;
 @property (strong, nonatomic) UITextField *hoursTextField;
 @property (strong, nonatomic) UIDatePicker *datePicker;
+@property (strong, nonatomic) UILabel *nameOfWorker;
+@property (strong,nonatomic) UIToolbar *pickerToolBar;
 
 @property (strong, nonatomic) WorkersViewController *forNameOfEmployee;
+
+- (IBAction)doneSelector:(id)sender;
 
 @end

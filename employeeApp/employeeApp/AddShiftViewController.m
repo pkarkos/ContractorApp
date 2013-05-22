@@ -18,8 +18,9 @@
 @implementation AddShiftViewController
 
 @synthesize forNameOfEmployee;
-@synthesize nameOfWorker;
+
 @synthesize delegateForWorkersViewController;
+@synthesize actualNameOfWorker;
 
 -(id) init
 {
@@ -28,12 +29,6 @@
     return self;
 }
 
--(id) initWithArray:(NSString *)_nameString
-{
-    nameString = [[NSString alloc] init];
-    nameString=_nameString;
-
-}
 
 - (void)viewDidLoad
 {
@@ -46,10 +41,34 @@
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIButtonTypeRoundedRect target: self action: @selector(backToHoursView)];
     
-
+    [self.view.dateTextField setDelegate:self];
+    
+    [self.view.nameOfWorker setText:self.actualNameOfWorker];
     
 }
 
+-(id)initWithWorkerName:(NSString *)name
+{
+    self = [super init];
+    if (self) {
+        self.actualNameOfWorker=name;
+    }
+    return self;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if ([self.view.dateTextField isFirstResponder] == YES)
+    {
+        [self.view.dateTextField resignFirstResponder];
+        [self.view.datePicker setAlpha:1.0f];
+        [self.view.pickerToolBar setAlpha:1.0f];
+        [UIView animateWithDuration:1.0f animations:^{
+            [self.view.datePicker setFrame:CGRectMake(0, 200, 320, 260)];
+            [self.view.pickerToolBar setFrame:CGRectMake(0, 156, 320, 44)];
+        }];
+    }
+}
 
 - (void) saveToHoursView
 {
@@ -63,9 +82,8 @@
         [self.delegate addItemViewController:self didFinishEnteringItem: addShiftInfo];
         [self backToHoursView];
         
-        self.nameOfWorker = [[UILabel alloc] initWithFrame:CGRectMake(30, 55, 180, 15)];
-        [self.nameOfWorker setBackgroundColor:[UIColor yellowColor]];
-        [self.nameOfWorker setText:nameString];
+       
+        
         
         
     }
@@ -75,6 +93,7 @@
 
                         
 }
+
 
 - (void) backToHoursView
 {
@@ -164,5 +183,6 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
 
 @end

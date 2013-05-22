@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) employee *myEmployee;
 
+-(id) initWithWorker:(employee *) worker;
+
 @end

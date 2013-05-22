@@ -20,11 +20,22 @@
 @synthesize myEmployee;
 
 
+-(id) initWithWorker:(employee *)worker
+{
+    self = [super init];
+    if (self)
+    {
+    self.myEmployee = worker;
+    }
+    return self;
+}
+
 -(void) addItemViewController:(AddShiftViewController *)controller didFinishEnteringItem:(shift *)item
 {
     [self.myEmployee.hoursArray addObject:item];
     [[self tableView] reloadData];
 }
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,10 +67,11 @@
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
 -(void)addShiftScreen
 {
-    AddShiftViewController *addShiftView = [[AddShiftViewController alloc] init];
-    addShiftView.delegate= self;                                            //**Add delegate**
+    AddShiftViewController *addShiftView = [[AddShiftViewController alloc] initWithWorkerName:self.myEmployee.name];
+    [addShiftView setDelegate:self];                                            //**Add delegate**
     [self.navigationController pushViewController: addShiftView animated:YES];
 }
 
