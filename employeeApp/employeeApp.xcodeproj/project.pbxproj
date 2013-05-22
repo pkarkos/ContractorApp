@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57409F381746BCA200AFEE5C /* HoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57409F371746BCA100AFEE5C /* HoursViewController.m */; };
+		57409F3B1746C0B300AFEE5C /* AddShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57409F3A1746C0B300AFEE5C /* AddShiftViewController.m */; };
+		57F68805174A56C6009DA06B /* AddShiftCustom View.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F68804174A56C6009DA06B /* AddShiftCustom View.m */; };
+		57F6880B174A78F5009DA06B /* ShiftCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F6880A174A78F5009DA06B /* ShiftCustomView.m */; };
+		57F68811174A9379009DA06B /* ShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F68810174A9379009DA06B /* ShiftViewController.m */; };
 		928633ED1743C58600E323B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928633EC1743C58600E323B1 /* UIKit.framework */; };
 		928633EF1743C58600E323B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928633EE1743C58600E323B1 /* Foundation.framework */; };
 		928633F11743C58600E323B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928633F01743C58600E323B1 /* CoreGraphics.framework */; };
@@ -39,6 +44,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		57409F361746BCA100AFEE5C /* HoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoursViewController.h; sourceTree = "<group>"; };
+		57409F371746BCA100AFEE5C /* HoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoursViewController.m; sourceTree = "<group>"; };
+		57409F391746C0B300AFEE5C /* AddShiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddShiftViewController.h; sourceTree = "<group>"; };
+		57409F3A1746C0B300AFEE5C /* AddShiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddShiftViewController.m; sourceTree = "<group>"; };
+		57F68803174A56C6009DA06B /* AddShiftCustom View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AddShiftCustom View.h"; sourceTree = "<group>"; };
+		57F68804174A56C6009DA06B /* AddShiftCustom View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AddShiftCustom View.m"; sourceTree = "<group>"; };
+		57F68809174A78F4009DA06B /* ShiftCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiftCustomView.h; sourceTree = "<group>"; };
+		57F6880A174A78F5009DA06B /* ShiftCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftCustomView.m; sourceTree = "<group>"; };
+		57F6880F174A9379009DA06B /* ShiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiftViewController.h; sourceTree = "<group>"; };
+		57F68810174A9379009DA06B /* ShiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftViewController.m; sourceTree = "<group>"; };
 		928633E91743C58600E323B1 /* employeeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = employeeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		928633EC1743C58600E323B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		928633EE1743C58600E323B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,6 +155,16 @@
 				928B8B48174536E70034AA05 /* AddWorkerCustomView.m */,
 				928B8B4A1745570A0034AA05 /* AddWorkerViewController.h */,
 				928B8B4B1745570B0034AA05 /* AddWorkerViewController.m */,
+				57409F361746BCA100AFEE5C /* HoursViewController.h */,
+				57409F371746BCA100AFEE5C /* HoursViewController.m */,
+				57409F391746C0B300AFEE5C /* AddShiftViewController.h */,
+				57409F3A1746C0B300AFEE5C /* AddShiftViewController.m */,
+				57F68803174A56C6009DA06B /* AddShiftCustom View.h */,
+				57F68804174A56C6009DA06B /* AddShiftCustom View.m */,
+				57F68809174A78F4009DA06B /* ShiftCustomView.h */,
+				57F6880A174A78F5009DA06B /* ShiftCustomView.m */,
+				57F6880F174A9379009DA06B /* ShiftViewController.h */,
+				57F68810174A9379009DA06B /* ShiftViewController.m */,
 			);
 			path = employeeApp;
 			sourceTree = "<group>";
@@ -293,6 +318,11 @@
 				928634611744124E00E323B1 /* WorkersViewController.m in Sources */,
 				928B8B49174536E70034AA05 /* AddWorkerCustomView.m in Sources */,
 				928B8B4C1745570B0034AA05 /* AddWorkerViewController.m in Sources */,
+				57409F381746BCA200AFEE5C /* HoursViewController.m in Sources */,
+				57409F3B1746C0B300AFEE5C /* AddShiftViewController.m in Sources */,
+				57F68805174A56C6009DA06B /* AddShiftCustom View.m in Sources */,
+				57F6880B174A78F5009DA06B /* ShiftCustomView.m in Sources */,
+				57F68811174A9379009DA06B /* ShiftViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,11 +24,6 @@
 }
 
 
-//HoursArray
-- (void) addObject:(shift *)inShift{
-    [hoursArray addObject:inShift];
-}
-
 //getHours
 - (double) getHours {
     double returnHours = 0;
@@ -41,6 +36,7 @@
     
     return returnHours;    
 }
+
 
 
 @end

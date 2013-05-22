@@ -13,17 +13,19 @@
 @synthesize date, hours, notes;
 
 
-- (id)initWithDate:(NSDate *)inDate
-             hours:(double)inHours
-             notes:(NSString *)inNotes
-{ 
+//- (id)initWithDate:(NSDate *)inDate
+//             hours:(double)inHours
+//             notes:(NSString *)inNotes
+
+- (id)initTempHours: (double)inHours
+              notes:(NSString *)inNotes;
+{
     self = [super init];
     if (self) {
-        self.date = inDate;
+        //self.date = inDate;
         self.hours = inHours;
         self.notes = inNotes;
     }
-    
     return self;
 }
 

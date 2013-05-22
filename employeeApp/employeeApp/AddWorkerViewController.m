@@ -13,21 +13,22 @@
 
 
 @interface AddWorkerViewController ()
+{
+    NSMutableArray *gradYearPickerRange;
+}
 
 @end
 
-@implementation AddWorkerViewController
+@implementation AddWorkerViewController 
 
 @synthesize gradYearPickerRange;
 @synthesize delegate;
+@synthesize pickerView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id) init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-        
-    }
+    
+    self=[super init];
     return self;
 }
 
@@ -35,24 +36,31 @@
 {
     [super viewDidLoad];
 	[self setTitle:@"Add Worker"];
+    //[self.view addSubview:pickerView];
+    
+    [pickerView setDelegate:self];
+    [pickerView setDataSource:self];
+    pickerView.showsSelectionIndicator=YES;
+    pickerView.hidden=YES;
+    [pickerView setShowsSelectionIndicator:YES];
     
     self.view = [[AddWorkerCustomView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     self.navigationItem.rightBarButtonItem= [[UIBarButtonItem alloc] initWithTitle:@"Confirm" style:UIButtonTypeRoundedRect target:self action:@selector(saveToWorkersScreen)];
-    
-    self.gradYearPickerRange=[[NSMutableArray alloc] init];
+
     for(int i=2011; i<2030; i++)
-    {
         [self.gradYearPickerRange addObject:[NSString stringWithFormat:@"%d",i]];
-    }
+    //This may be where my error is for the picker 
+    
+    self.navigationItem.leftBarButtonItem= [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIButtonTypeRoundedRect target:self action: @selector(backToWorkerScreen)];
     
 }
--(NSInteger) numberOfComponentsinPickerView: (UIPickerView *)pickerView
+-(NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
 
--(NSInteger) pickerView: (UIPickerView *) pickerView numberOfRowsInComponent:(NSInteger)component
+-(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     return [gradYearPickerRange count];
 }
@@ -62,17 +70,31 @@
     return [gradYearPickerRange objectAtIndex:row];
 }
 
+-(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    if (component ==0)
+    {
+       // NSString *select = [[NSString alloc] initWithString:[self.pickerView]]
+    }
+}
+
+-(void) backToWorkerScreen
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 -(void) saveToWorkersScreen
 {
-    //NSString *textInTextField= [self.nameTextField.text];
-    //self.view.nameTextField.
-    
-    NSInteger row=[self.view.gradYearPicker selectedRowInComponent:0];
-    NSString *gradYearString=[self.gradYearPickerRange objectAtIndex: row];
-    employee *passBackEmployee = [[employee alloc] initWithName:self.view.nameTextField.text andGradYear: gradYearString];
+
+    if ([self.gradYearPickerRange count]==0 && [self.view.nameTextField.text length]==0)
+        [self backToWorkerScreen];
+    else
+    {
+        NSInteger row=[pickerView selectedRowInComponent:0];
+    employee *passBackEmployee = [[employee alloc] initWithName:self.view.nameTextField.text andGradYear: [gradYearPickerRange objectAtIndex: row]];
     [self.delegate addItemViewController:self didFinishEnteringItem:passBackEmployee];
-    
     [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 

@@ -10,6 +10,8 @@
 #import "employee.h"
 #import "AddWorkerCustomView.h"
 #import "AddWorkerViewController.h"
+#import "HoursViewController.h"
+#import "AddShiftViewController.h"
 
 
 @implementation WorkersViewController
@@ -31,24 +33,38 @@
 
     [self setTitle:@"Workers"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style: UIBarButtonSystemItemAdd target:self action: @selector(changeToAddWorkerScreen)];
-    //employee *brian = [[employee alloc] initWithName: @"Brian" andGradYear: 2014];
-    //employee *peter = [[employee alloc] initWithName:@"Peter" andGradYear:2016];
     self.workersArray = [[NSMutableArray alloc] init];
     
-    //[self.workersArray addObject:brian];
-    //[self.workersArray addObject:peter];
-    
-    NSLog(@"%d",[workersArray count]);
     
 }
 
 //  Override inherited implementation to automatically refresh the table
 //  view's data.
 //
+-(void) giveNameToAddShiftViewController
+{
+    [[self tableView] reloadData];
+    employee *giveNameString =[self.workersArray objectAtIndex:0];
+    NSString *givesNameString = giveNameString.name;
+    
+    AddShiftViewController *passToAddShiftViewController = [[AddShiftViewController alloc] initWithArray:givesNameString];
+    
+    [self.navigationController pushViewController:passToAddShiftViewController animated:YES];
+    NSLog(@"Sent Info");
+}
+
+-(void) addItemViewController:(AddWorkerViewController *)controller didFinishEnteringItem:(employee *)item
+{
+    [self.workersArray addObject:item];
+}
 
 - (void)changeToAddWorkerScreen
 {
-    //AddWorkerCustomView *workerView= [[AddWorkerCustomView alloc] initWithNibName: nil bundle: NULL];
+    AddWorkerViewController *workerView= [[AddWorkerViewController alloc] init];
+    workerView.delegate= self;
+    [[self navigationController] pushViewController: workerView animated:YES];
+    
+       
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -66,7 +82,7 @@
 
 - (NSInteger)tableView:numberOfRowsInSection
 {
-    return [self.workersArray count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -76,6 +92,12 @@
 }
 
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HoursViewController *hoursView = [[HoursViewController alloc] init];
+    hoursView.myEmployee = [self.workersArray objectAtIndex: indexPath.row];
+    [[self navigationController] pushViewController:hoursView animated:YES];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
@@ -90,6 +112,7 @@
     
     NSString *additionOfHours = [selectedCell.name stringByAppendingString: [NSString stringWithFormat:@"  %.02f",[selectedCell getHours]]];
     cell.textLabel.text = additionOfHours;
+
     
     //[cell  setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;

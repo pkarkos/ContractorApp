@@ -10,7 +10,7 @@
 
 @implementation AddWorkerCustomView
 
-@synthesize nameLabel, gradYearLabel, nameTextField, gradYearPicker, gradYearPickerRange;
+@synthesize nameLabel, gradYearLabel, nameTextField, pickerView;
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -20,26 +20,24 @@
     if (self) {
         [self setBackgroundColor:[UIColor grayColor]];
         
-        self.nameTextField= [[UITextField alloc] initWithFrame:CGRectMake(30, 100, 60, 120)];
+        self.nameTextField= [[UITextField alloc] initWithFrame:CGRectMake(30, 70, 180, 30)];
         [self.nameTextField setBackgroundColor:[UIColor whiteColor]];
-        self.gradYearPicker=[[UIPickerView alloc] initWithFrame:CGRectMake(30, 170 , 280, 190)];
         
-        self.nameLabel =[[UILabel alloc] initWithFrame:CGRectMake(30, 75, 60, 95)];
-        self.gradYearLabel= [[UILabel alloc]initWithFrame:CGRectMake(30, 145, 75, 165)];
+        self.pickerView=[[UIPickerView alloc] initWithFrame:CGRectMake(30, 180, 180, 100)];
+        [self.pickerView setBackgroundColor:[UIColor whiteColor]];
+
+        self.nameLabel =[[UILabel alloc] initWithFrame:CGRectMake(30, 30, 60, 30)];
+        [self.nameLabel setBackgroundColor:[UIColor clearColor]];
         [self.nameLabel  setText:@"Name"];
+        
+        self.gradYearLabel= [[UILabel alloc]initWithFrame:CGRectMake(30, 145, 180, 30)];
+        [self.gradYearLabel setBackgroundColor:[UIColor clearColor]];
         [self.gradYearLabel setText:@"Grad Year"];
         
         [self addSubview:self.gradYearLabel];
         [self addSubview:self.nameLabel];
-        [self addSubview:self.gradYearPicker];
+        [self addSubview: pickerView];
         [self addSubview:self.nameTextField];
-        
-        self.gradYearPickerRange=[[NSMutableArray alloc] init];
-        for(int i=2011; i<2030; i++)
-        {
-            [self.gradYearPickerRange addObject:[NSString stringWithFormat:@"%d",i]];
-        }
-        
         
     }
     return self;

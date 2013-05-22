@@ -17,11 +17,15 @@
 -(void) addItemViewController: (AddWorkerViewController *)controller didFinishEnteringItem:(employee *)item;
 
 @end
-
-@interface AddWorkerViewController : UIViewController
+ 
+@interface AddWorkerViewController : UIViewController <AddWorkerViewControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+{
+    UIPickerView *pickerView;
+}
 
 @property (strong, nonatomic) AddWorkerCustomView *view;
 @property (strong, nonatomic) NSMutableArray *gradYearPickerRange;
 @property (nonatomic, weak) id <AddWorkerViewControllerDelegate> delegate;
+@property (nonatomic, strong) IBOutlet UIPickerView *pickerView;
 
 @end

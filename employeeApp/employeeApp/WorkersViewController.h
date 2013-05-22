@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddWorkerViewController.h"
 
-@interface WorkersViewController : UITableViewController {
+
+@interface WorkersViewController : UITableViewController <AddWorkerViewControllerDelegate>{
     NSMutableArray *workersArray;
 }
 
 @property (strong, nonatomic) NSMutableArray *workersArray;
 
+
+
 @end
+

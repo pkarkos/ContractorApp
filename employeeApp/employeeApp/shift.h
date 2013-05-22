@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 
 @interface shift : NSObject {
-    NSDate *date;
+    //NSDate *date;
     double hours;
     NSString *notes;
 }
 
-- (id)initWithDate:(NSDate *)inDate
-             hours:(double)inHours
-             notes:(NSString *)inNotes;
+//- (id)initWithDate:(NSDate *)inDate
+//             hours:(double)inHours
+//             notes:(NSString *)inNotes;
+- (id)initTempHours: (double)inHours
+              notes:(NSString *)inNotes;
 
 
 @property (strong, nonatomic) NSDate *date;

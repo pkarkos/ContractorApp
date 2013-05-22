@@ -13,7 +13,7 @@
 @property UILabel *nameLabel;
 @property UILabel *gradYearLabel;
 @property UITextField *nameTextField;
-@property UIPickerView *gradYearPicker;
-@property NSMutableArray *gradYearPickerRange;
+@property UIPickerView *pickerView;
+
 
 @end
